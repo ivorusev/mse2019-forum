@@ -11,13 +11,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TopicDTO {
+public class ReplyDTO {
 
-	private Long id;
-	private String title;
-	private String userId;
+	private Long topicId;
+	private String replyContent;
 	private Date createdOn;
 	private Date modifiedOn;
-	private long viewsCount;
 
 }

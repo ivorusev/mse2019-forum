@@ -41,4 +41,10 @@ public class TopicServiceImpl implements TopicService {
 		return mapper.toDto(repository.findByTitle(title));
 	}
 
+	@Override
+	public TopicDTO findById(Long id) {
+		return mapper.toDto(repository.findById(id)
+				.get());
+	}
+
 }

@@ -64,4 +64,24 @@ public class ForumApplicationTests {
 		assertNotNull(actual.getCreatedOn());
 	}
 
+	/*
+	 * @Autowired private RepliesRepository rep;
+	 * 
+	 * @Autowired private TopicRepository top;
+	 * 
+	 * @Test public void testRelations() throws Exception { TopicEntity topic = new
+	 * TopicEntity(); topic.setTitle("asd"); ReplyEntity reply = new ReplyEntity();
+	 * 
+	 * List<ReplyEntity> replies = Collections.singletonList(reply);
+	 * 
+	 * reply.setTopicId(topic); topic.setReplies(replies);
+	 * 
+	 * top.saveAndFlush(t);
+	 * 
+	 * List<TopicEntity> result = top.findAll(); List<ReplyEntity> r = result.get(0)
+	 * .getReplies(); assertEquals(1, r.size());
+	 * 
+	 * System.out.println(); }
+	 */
+
 }

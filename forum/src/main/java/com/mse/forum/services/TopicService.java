@@ -12,4 +12,6 @@ public interface TopicService {
 
 	TopicDTO findByTitle(String title);
 
+	TopicDTO findById(Long id);
+
 }
