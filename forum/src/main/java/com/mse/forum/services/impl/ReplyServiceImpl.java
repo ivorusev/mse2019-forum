@@ -47,8 +47,6 @@ public class ReplyServiceImpl implements ReplyService {
 		if (!topic.isPresent()) {
 			throw new IllegalArgumentException("Tryed to add a reply for non-existant topic.");
 		}
-		TopicEntity entity = topic.get();
-		List<ReplyEntity> replies = entity.getReplies();
 		return topic.get()
 				.getReplies()
 				.stream()
