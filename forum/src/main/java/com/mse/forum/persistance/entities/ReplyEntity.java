@@ -40,6 +40,10 @@ public class ReplyEntity {
 	@Column(name = "modified_on")
 	private Date modifiedOn;
 
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
+	private UserEntity user;
+
 	@PrePersist
 	public void setDates() {
 		this.modifiedOn = new Date();
