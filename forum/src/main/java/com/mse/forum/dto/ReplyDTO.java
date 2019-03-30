@@ -17,5 +17,6 @@ public class ReplyDTO {
 	private String replyContent;
 	private Date createdOn;
 	private Date modifiedOn;
+	private Long userId;
 
 }
