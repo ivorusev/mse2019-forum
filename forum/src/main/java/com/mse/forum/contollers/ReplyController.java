@@ -2,6 +2,8 @@ package com.mse.forum.contollers;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @RestController
 @RequestMapping(path = "/replies")
+@RolesAllowed(value = { "ADMIN", "USER", "MODERATOR" })
 public class ReplyController {
 
 	private ReplyService service;

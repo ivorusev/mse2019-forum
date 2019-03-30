@@ -26,12 +26,19 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 				.antMatchers("/oauth/token", "/oauth/authorize**")
 				.permitAll();
+
+		http.csrf()
+				.disable()
+				.authorizeRequests()
+				.antMatchers("/users/**", "/users/create")
+				.permitAll();
 	}
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring()
-				.antMatchers("/h2/**");
+				.antMatchers("/h2/**", "/users/create");
+
 	}
 
 }

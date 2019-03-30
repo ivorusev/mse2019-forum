@@ -1,4 +1,4 @@
-package com.mse.forum.services.impl;
+package com.mse.forum.utils;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -59,10 +59,5 @@ public class PasswordEncryptionUtil {
 		} finally {
 			spec.clearPassword();
 		}
-	}
-
-	public static void main(String[] args) {
-		System.out.println(encrypt("asd"));
-		System.out.println(verifyUserPassword("asd", encrypt("asd")));
 	}
 }
