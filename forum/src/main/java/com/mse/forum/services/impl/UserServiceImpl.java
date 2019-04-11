@@ -9,7 +9,10 @@ import com.mse.forum.persistance.entities.Roles;
 import com.mse.forum.persistance.entities.UserEntity;
 import com.mse.forum.services.UserService;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
 	private UsersRepository usersRepository;

@@ -30,14 +30,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.csrf()
 				.disable()
 				.authorizeRequests()
-				.antMatchers("/users/**", "/users/create")
+				.antMatchers("/users/**", "/users/**")
 				.permitAll();
 	}
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring()
-				.antMatchers("/h2/**", "/users/create");
+				.antMatchers("/h2/**", "/users/**");
 
 	}
 
