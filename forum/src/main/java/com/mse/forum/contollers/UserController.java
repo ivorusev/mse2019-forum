@@ -20,7 +20,13 @@ public class UserController {
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public void login(@RequestBody UserDTO user) {
+	public void create(@RequestBody UserDTO user) {
 		usersService.saveUser(user);
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/get", method = RequestMethod.GET)
+	public void getUser(@RequestBody UserDTO user) {
+		usersService.getUser(user);
 	}
 }

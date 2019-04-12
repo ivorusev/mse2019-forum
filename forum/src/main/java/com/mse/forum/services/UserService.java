@@ -6,4 +6,6 @@ public interface UserService {
 
 	boolean saveUser(UserDTO user);
 
+	UserDTO getUser(UserDTO user);
+
 }

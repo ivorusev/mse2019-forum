@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mse.forum.dto.ReplyDTO;
+import com.mse.forum.dto.ReplyWithTopicDTO;
 import com.mse.forum.services.ReplyService;
 
 import lombok.AllArgsConstructor;
@@ -25,6 +26,11 @@ public class ReplyController {
 
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
 	public void createReply(@RequestBody ReplyDTO reply) {
+		service.save(reply);
+	}
+
+	@RequestMapping(path = "/reply-with-topic", method = RequestMethod.POST, consumes = "application/json")
+	public void createReplyWithTopic(@RequestBody ReplyWithTopicDTO reply) {
 		service.save(reply);
 	}
 

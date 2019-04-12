@@ -1,5 +1,7 @@
 package com.mse.forum.services.impl;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.mse.forum.dto.UserDTO;
@@ -25,6 +27,14 @@ public class UserServiceImpl implements UserService {
 		entity.setRole(Roles.USER);
 		usersRepository.save(entity);
 		return true;
+	}
+
+	@Override
+	public UserDTO getUser(UserDTO user) {
+		Optional<UserEntity> findByUsername = usersRepository.findByUsername(user.getUsername());
+		UserEntity userEntity = findByUsername.get();
+		UserDTO dto = mapper.toDto(userEntity);
+		return dto;
 	}
 
 }
