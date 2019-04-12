@@ -13,7 +13,7 @@ public interface ReplyMapper {
 	ReplyEntity toEntity(ReplyDTO dto);
 
 	@Mapping(source = "topic.id", target = "topicId")
-	@Mapping(source = "topic.user.id", target = "userId")
+	@Mapping(source = "user.id", target = "userId")
 	ReplyDTO toDto(ReplyEntity entity);
 
 	@Mapping(target = "topic", ignore = true)

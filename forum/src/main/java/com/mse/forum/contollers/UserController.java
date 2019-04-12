@@ -26,7 +26,7 @@ public class UserController {
 
 	@ResponseBody
 	@RequestMapping(value = "/get", method = RequestMethod.GET)
-	public void getUser(@RequestBody UserDTO user) {
-		usersService.getUser(user);
+	public UserDTO getUser(@RequestBody UserDTO user) {
+		return usersService.getUser(user);
 	}
 }
