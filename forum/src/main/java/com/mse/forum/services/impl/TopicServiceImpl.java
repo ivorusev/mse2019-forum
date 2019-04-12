@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.mse.forum.dto.TopicDTO;
 import com.mse.forum.mappers.TopicMapper;
 import com.mse.forum.persistance.TopicRepository;
+import com.mse.forum.persistance.entities.ReplyEntity;
 import com.mse.forum.persistance.entities.TopicEntity;
 import com.mse.forum.services.TopicService;
 
@@ -32,7 +33,20 @@ public class TopicServiceImpl implements TopicService {
 	public List<TopicDTO> getAll() {
 		return repository.findAll()
 				.stream()
-				.map(entity -> mapper.toDto(entity))
+				.map(entity -> {
+					List<ReplyEntity> replies = entity.getReplies();
+					TopicDTO dto = mapper.toDto(entity);
+					if (replies != null && !replies.isEmpty()) {
+						if (replies.get(0)
+								.getUser() != null) {
+							dto.setUserId(replies.get(0)
+									.getUser()
+									.getId() + "");
+						}
+
+					}
+					return dto;
+				})
 				.collect(Collectors.toList());
 	}
 
@@ -43,8 +57,11 @@ public class TopicServiceImpl implements TopicService {
 
 	@Override
 	public TopicDTO findById(Long id) {
-		return mapper.toDto(repository.findById(id)
-				.get());
+		TopicEntity topicEntity = repository.findById(id)
+				.get();
+		TopicDTO dto = mapper.toDto(topicEntity);
+		dto.setUserId(topicEntity.getUserId());
+		return mapper.toDto(topicEntity);
 	}
 
 }
